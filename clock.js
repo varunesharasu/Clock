@@ -84,7 +84,7 @@ function updateHourAndMinuteHands() {
   const now = new Date();
   const berlinTime = new Date(
     now.toLocaleString("en-US", {
-      timeZone: "Europe/Berlin"
+      timeZone: "Asia/Kolkata"
     })
   );
   const hours = berlinTime.getHours() % 12;
@@ -121,7 +121,7 @@ function updateHourAndMinuteHands() {
   // Update timezone display
   const timezoneDisplay = document.getElementById("clock-timezone");
   if (timezoneDisplay) {
-    timezoneDisplay.textContent = "Berlin";
+    timezoneDisplay.textContent = "IST";
   }
   // Update hour and minute hands every minute
   setTimeout(updateHourAndMinuteHands, 60000);
@@ -164,10 +164,13 @@ function animateTickMode(
   const intervalMs = 1000 / ticksPerSecond;
 
   function tick() {
-    // Get current time
+    // Get current IST time
     const now = new Date();
-    const seconds = now.getSeconds();
-    const milliseconds = now.getMilliseconds();
+    const ist = new Date(
+      now.toLocaleString("en-US", { timeZone: "Asia/Kolkata" })
+    );
+    const seconds = ist.getSeconds();
+    const milliseconds = ist.getMilliseconds();
     // Calculate the current time in milliseconds within the minute
     const timeInMs = seconds * 1000 + milliseconds;
     // Calculate which tick we should be on
@@ -198,10 +201,13 @@ function animateTickMode(
 // Function to animate with smooth motion
 function animateSmoothMode(secondHandContainer, secondHandShadow) {
   function animate() {
-    // Get current time with millisecond precision
+    // Get current IST time with millisecond precision
     const now = new Date();
-    const seconds = now.getSeconds();
-    const milliseconds = now.getMilliseconds();
+    const ist = new Date(
+      now.toLocaleString("en-US", { timeZone: "Asia/Kolkata" })
+    );
+    const seconds = ist.getSeconds();
+    const milliseconds = ist.getMilliseconds();
     // Calculate the exact angle based on real time
     // Each second is 6 degrees (360/60), and we add the millisecond fraction
     secondsAngle = seconds * 6 + (milliseconds / 1000) * 6;
