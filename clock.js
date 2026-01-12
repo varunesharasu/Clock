@@ -218,13 +218,10 @@ function animateSmoothMode(secondHandContainer, secondHandShadow) {
       secondHandShadow.style.transition = "none"; // Changed to none for smoother movement
       secondHandShadow.style.transform = `rotate(${secondsAngle + 0.5}deg)`;
     }
-    // Request next frame for smooth animation
     animationFrameId = requestAnimationFrame(animate);
   }
-  // Start animation
   animate();
 }
-// Initialize Tweakpane
 function initTweakpane() {
   try {
     // Initialize Tweakpane with the imported module
