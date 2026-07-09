@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const hourMarksContainer = document.getElementById("clock-hour-marks");
   for (let i = 0; i < 60; i++) {
     if (i % 5 === 0) {
-      // Hour number (every 5 minutes)
       const hourIndex = i / 5;
       const hourNumber = document.createElement("div");
       hourNumber.className = "clock-number";
