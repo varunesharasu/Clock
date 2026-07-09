@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const hourIndex = i / 5;
       const hourNumber = document.createElement("div");
       hourNumber.className = "clock-number";
-      // Calculate position for numbers - perfectly centered around the clock
       const angle = (i * 6 * Math.PI) / 180;
       const radius = 145; // Distance from center
       const left = 175 + Math.sin(angle) * radius - 15;
