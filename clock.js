@@ -1,7 +1,6 @@
 import { Pane } from "https://cdn.jsdelivr.net/npm/tweakpane@4.0.5/dist/tweakpane.min.js";
 document.addEventListener("DOMContentLoaded", function () {
   const hourMarksContainer = document.getElementById("clock-hour-marks");
-  // Create hour numbers and minute markers with perfect spacing
   for (let i = 0; i < 60; i++) {
     if (i % 5 === 0) {
       // Hour number (every 5 minutes)
