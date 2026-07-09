@@ -1,5 +1,4 @@
 import { Pane } from "https://cdn.jsdelivr.net/npm/tweakpane@4.0.5/dist/tweakpane.min.js";
-// Wait for DOM to be fully loaded
 document.addEventListener("DOMContentLoaded", function () {
   // Create clock hour marks and numbers
   const hourMarksContainer = document.getElementById("clock-hour-marks");
