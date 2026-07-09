@@ -1,4 +1,3 @@
-// Import Tweakpane as a module
 import { Pane } from "https://cdn.jsdelivr.net/npm/tweakpane@4.0.5/dist/tweakpane.min.js";
 // Wait for DOM to be fully loaded
 document.addEventListener("DOMContentLoaded", function () {
