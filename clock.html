@@ -1,66 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clock</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeFlow - Professional Clock Dashboard</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo">⏰</div>
+                <h1>TimeFlow</h1>
+            </div>
+            <p class="subtitle">Professional Time Management</p>
+        </div>
+    </header>
 
-  <div class="keyboard-info">
-    Press <kbd>H</kbd> to toggle settings panel | Using IST timezone
-  </div>
+    <!-- Main Content -->
+    <main class="main-container">
+        <div class="grid-layout">
+            <!-- Left Sidebar -->
+            <aside class="sidebar">
+                <!-- Digital Time Panel -->
+                <div class="glass-panel">
+                    <div class="panel-header">Digital Time</div>
+                    <div class="digital-time">
+                        <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+                    </div>
+                    <div class="ampm" id="ampm">AM</div>
+                </div>
 
-  <svg class="background-svg" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <pattern id="dottedGrid" width="30" height="30" patternUnits="userSpaceOnUse">
-        <circle cx="2" cy="2" r="1" fill="rgba(0,0,0,0.15)" />
-      </pattern>
-    </defs>
-    <rect width="100%" height="100%" fill="url(#dottedGrid)" />
-  </svg>
+                <!-- Date & Timezone Panel -->
+                <div class="glass-panel">
+                    <div class="panel-header">Date & Timezone</div>
+                    <div class="info-group">
+                        <div class="info-label">Date</div>
+                        <div class="info-value" id="dateDisplay">Jan 1</div>
+                    </div>
+                    <div class="info-group">
+                        <div class="info-label">Timezone</div>
+                        <div class="info-value">IST</div>
+                    </div>
+                </div>
 
-  <div class="glass-clock-container">
-    <div class="glass-effect-wrapper">
-      <div class="glass-effect-shadow"></div>
-      <div class="glass-clock-face">
-        <div class="glass-glossy-overlay" id="glass-glossy-overlay"></div>
+                <!-- Status Panel -->
+                <div class="glass-panel">
+                    <div class="panel-header">Status</div>
+                    <div class="status-indicator">
+                        <div class="pulse-dot"></div>
+                        <span>Active & Running</span>
+                    </div>
+                </div>
+            </aside>
 
-        <div class="glass-edge-highlight"></div>
-        <div class="glass-edge-shadow"></div>
-        <div class="glass-dark-edge"></div>
-        <div class="glass-reflection"></div>
-        <div class="glass-reflection-overlay" id="glass-reflection-overlay"></div>
+            <!-- Main Clock Area -->
+            <section class="clock-section">
+                <div class="glass-panel-large">
+                    <!-- Analog Clock -->
+                    <svg class="analog-clock" viewBox="0 0 350 350" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <radialGradient id="clockGradient" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="rgba(255, 255, 255, 0.95)" />
+                                <stop offset="100%" stop-color="rgba(255, 255, 255, 0.7)" />
+                            </radialGradient>
+                        </defs>
 
-        <div class="clock-hour-marks" id="clock-hour-marks"></div>
-        <div class="hour-hand clock-hand" id="hour-hand"></div>
-        <div class="minute-hand clock-hand" id="minute-hand"></div>
+                        <!-- Clock face -->
+                        <circle cx="175" cy="175" r="170" fill="url(#clockGradient)" stroke="rgba(0,0,0,0.08)" stroke-width="1" />
 
-\        <div class="second-hand-container" id="second-hand-container">
-          <div class="second-hand"></div>
-          <div class="second-hand-counterweight"></div>
+                        <!-- Hour marks -->
+                        <g id="hourMarks"></g>
+
+                        <!-- Hour numbers -->
+                        <g id="hourNumbers"></g>
+
+                        <!-- Hour hand -->
+                        <line id="hour" x1="175" y1="175" x2="175" y2="95" stroke="rgba(0,0,0,0.8)" stroke-width="5" stroke-linecap="round" />
+
+                        <!-- Minute hand -->
+                        <line id="minute" x1="175" y1="175" x2="175" y2="55" stroke="rgba(0,0,0,0.6)" stroke-width="4" stroke-linecap="round" />
+
+                        <!-- Second hand -->
+                        <line id="second" x1="175" y1="175" x2="175" y2="50" stroke="rgb(59, 130, 246)" stroke-width="2" stroke-linecap="round" />
+
+                        <!-- Center dot -->
+                        <circle cx="175" cy="175" r="6" fill="rgba(0,0,0,0.8)" />
+                    </svg>
+
+                    <div class="clock-help">
+                        Press <kbd>H</kbd> to toggle settings
+                    </div>
+                </div>
+            </section>
         </div>
 
-        <div class="second-hand-shadow" id="second-hand-shadow"></div>
-
-        <div class="clock-center-dot"></div>
-        <div class="clock-center-blur"></div>
-        <div class="clock-logo">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Braun_Logo.svg" alt="Braun Logo" width="80" height="30" class="braun-logo-img">
+        <!-- Bottom Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value" id="statHours">00</div>
+                <div class="stat-label">Hours</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="statMinutes">00</div>
+                <div class="stat-label">Minutes</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="statSeconds">00</div>
+                <div class="stat-label">Seconds</div>
+            </div>
         </div>
-        <div class="clock-date" id="clock-date"></div>
-        <div class="clock-timezone" id="clock-timezone">IST</div>
-      </div>
-    </div>
-  </div>
+    </main>
 
-  <div class="attribution">
-    Inspired by <a href="https://codepen.io/Petr-Knoll/pen/QwWLZdx" target="_blank" rel="noopener">Petr Knoll</a>
-  </div>
-
-  <div class="tweakpane-container" id="tweakpane-container"></div>
-
-  <script type="module" src="clock.js"></script>
+    <!-- Scripts -->
+    <script src="clock.js"></script>
 </body>
 </html>
