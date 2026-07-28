@@ -50,7 +50,6 @@ document.addEventListener("DOMContentLoaded", function () {
   document.documentElement.style.setProperty("--glossy-opacity", "0.3");
   // Start the clock animation
   startClock();
-  // Add keyboard shortcut to toggle Tweakpane visibility
   document.addEventListener("keydown", function (event) {
     if (event.key === "h" || event.key === "H") {
       const tweakpaneContainer = document.getElementById("tweakpane-container");
