@@ -37,7 +37,6 @@ document.addEventListener("DOMContentLoaded", function () {
       rgba(255, 255, 255, 0.1) 100%)`;
     glossyOverlay.style.filter = "blur(10px)";
   }
-  // Set fixed reflection overlay
   const reflectionOverlay = document.getElementById("glass-reflection-overlay");
   if (reflectionOverlay) {
     reflectionOverlay.style.transform = "rotate(-15deg)";
