@@ -108,7 +108,6 @@ body {
   opacity: var(--outer-shadow-opacity, 1);
 }
 
-/* Shadow effect - softened with multiple layers */
 .glass-effect-shadow::after {
   content: "";
   position: absolute;
