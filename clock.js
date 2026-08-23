@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const hourNumber = document.createElement("div");
       hourNumber.className = "clock-number";
       const angle = (i * 6 * Math.PI) / 180;
-      const radius = 145; // Distance from center
+      const radius = 145; 
       const left = 175 + Math.sin(angle) * radius - 15;
       const top = 175 - Math.cos(angle) * radius - 10;
       hourNumber.style.left = `${left}px`;
