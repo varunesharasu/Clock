@@ -239,7 +239,6 @@ body {
   opacity: var(--inner-shadow-opacity);
 }
 
-/* Dark edge effect for enhanced glossiness - INNER SHADOW */
 .glass-dark-edge {
   position: absolute;
   z-index: 9;
