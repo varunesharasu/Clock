@@ -292,7 +292,6 @@ body {
   filter: blur(10px);
 }
 
-/* Glass reflection overlay - new element */
 .glass-reflection-overlay {
   position: absolute;
   width: 330px;
