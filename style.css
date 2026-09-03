@@ -404,7 +404,7 @@ body {
   z-index: 14;
 }
 
-/* Minute marker as lines */
+
 .minute-marker {
   position: absolute;
   width: 1px;
